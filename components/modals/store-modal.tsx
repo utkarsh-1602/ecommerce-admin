@@ -3,7 +3,7 @@
 import { UseStoreModal } from "@/hooks/use-store-modal"
 import { Modal } from "@/components/ui/modal"
 
-export const storeModal = () => {
+const StoreModal = () => {
 
     const storeModal = UseStoreModal();
 
@@ -18,3 +18,5 @@ export const storeModal = () => {
         </Modal>
     )
 }
+
+export default StoreModal;

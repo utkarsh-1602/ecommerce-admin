@@ -1,22 +1,23 @@
 "use client"
 
 import { Modal } from "@/components/ui/modal";
+import { UseStoreModal } from "@/hooks/use-store-modal";
 import { useEffect, useState } from 'react';
 
 const SetupPage = () => {
-    const [isModalOpen, setIsModalOpen] = useState(false);
+
+    const onOpen = UseStoreModal((state) => state.onOpen)
+    const isOpen = UseStoreModal((state) => state.isOpen);
 
     useEffect(() => {
-        setIsModalOpen(true);
-    }, []);
+        if (!isOpen) {
+            onOpen();
+        }
+    }, [isOpen, onOpen]);
 
     return (
-        <div className="flex items-center justify-center h-full">
-            {isModalOpen && (
-                <Modal title="Test" description="Test Desc" isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
-                    Children
-                </Modal>
-            )}
+        <div className="p-4">
+            Root Page
         </div>
     );
 };
