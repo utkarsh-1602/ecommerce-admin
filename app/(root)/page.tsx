@@ -1,10 +1,24 @@
-import { Button } from "@/components/ui/button";
-import { UserButton } from "@clerk/nextjs";
+"use client"
 
-export default function SetupPage() {
+import { Modal } from "@/components/ui/modal";
+import { useEffect, useState } from 'react';
+
+const SetupPage = () => {
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
+    useEffect(() => {
+        setIsModalOpen(true);
+    }, []);
+
     return (
         <div className="flex items-center justify-center h-full">
-            <UserButton afterSignOutUrl="/" />
+            {isModalOpen && (
+                <Modal title="Test" description="Test Desc" isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
+                    Children
+                </Modal>
+            )}
         </div>
-    )
-}
+    );
+};
+
+export default SetupPage;
