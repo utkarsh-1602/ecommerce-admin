@@ -10,6 +10,6 @@ export default function SetupPage() {
                 Children
             </Modal>
             {/* <UserButton /> */}
-        </div >
+        </div>
     )
 }
