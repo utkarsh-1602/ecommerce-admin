@@ -1,15 +1,15 @@
 "use client"
-import { Button } from "@/components/ui/button";
-import { Modal } from "@/components/ui/modal";
-import { UserButton } from "@clerk/nextjs";
 
-export default function SetupPage() {
+import { Modal } from "@/components/ui/modal";
+
+const SetupPage = () => {
     return (
         <div className="flex items-center justify-center h-full">
-            <Modal onClose={() => { }} isOpen={true} title="Test" description="Test Desc">
+            <Modal title="Test" description="Test Desc" isOpen onClose={() => { }}>
                 Children
             </Modal>
-            {/* <UserButton /> */}
         </div>
     )
 }
+
+export default SetupPage;
