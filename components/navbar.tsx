@@ -1,6 +1,6 @@
 import { UserButton } from '@clerk/nextjs'
 import React from 'react'
-import { MainNav } from './main-nav'
+import { MainNav } from '@/components/main-nav'
 
 const Navbar = () => {
     return (
