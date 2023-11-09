@@ -40,7 +40,10 @@ const StoreModal = () => {
 
             const response = await axios.post('/api/stores', values);
 
-            toast.success("Store created")
+            // toast.success("Store created")
+            window.location.assign(`/${response.data.id}`)
+            // what this window.location.assign does is after redirecting it refreshes the window and data is completely stored in the database
+
 
 
         } catch (error) {
