@@ -9,7 +9,7 @@ import { Store as StoreIcon } from "lucide-react"; // added using shadcn ui
 import { Popover, PopoverTrigger } from "@/components/ui/popover"
 import { UseStoreModal } from "@/hooks/use-store-modal";
 import { Button } from "@/components/ui/button";
-
+import { cn } from "@/lib/utils";
 
 type PopoverTriggerProps = React.ComponentPropsWithoutRef<typeof PopoverTrigger>
 
@@ -46,8 +46,16 @@ const StoreSwitcher = ({ className, items = [] }: StoreSwitcherProps) => {
     return (
         <Popover open={open} onOpenChange={setOpen}>
             <PopoverTrigger asChild>
-                <Button>
-                    <StoreIcon />
+                <Button
+                    variant="outline"
+                    size="sm"
+                    role="combobox"
+                    aria-haspopup="listbox"
+                    aria-expanded={open}
+                    aria-label="Select a store"
+                    className={cn("w-[200px] justify-between", className)}
+                >
+                    <StoreIcon className="mr-2 h-4 w-4" />
                 </Button>
             </PopoverTrigger>
         </Popover>
