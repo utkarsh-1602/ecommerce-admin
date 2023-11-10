@@ -3,10 +3,13 @@
 import { Store } from "@prisma/client"
 import { useParams } from "next/navigation";
 import { useRouter } from "next/router";
+import { useState } from "react";
+import { Store as StoreIcon } from "lucide-react"; // added using shadcn ui 
 
 import { Popover, PopoverTrigger } from "@/components/ui/popover"
 import { UseStoreModal } from "@/hooks/use-store-modal";
-import { useState } from "react";
+import { Button } from "@/components/ui/button";
+
 
 type PopoverTriggerProps = React.ComponentPropsWithoutRef<typeof PopoverTrigger>
 
@@ -43,7 +46,9 @@ const StoreSwitcher = ({ className, items = [] }: StoreSwitcherProps) => {
     return (
         <Popover open={open} onOpenChange={setOpen}>
             <PopoverTrigger asChild>
-
+                <Button>
+                    <StoreIcon />
+                </Button>
             </PopoverTrigger>
         </Popover>
     )
