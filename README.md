@@ -15,22 +15,27 @@ bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+# Productivity Samurai
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+[![GitHub license](https://img.shields.io/github/license/YourUsername/YourRepository)](https://github.com/YourUsername/YourRepository/blob/main/LICENSE)
 
-## Learn More
+## Features
 
-To learn more about Next.js, take a look at the following resources:
+- **E-commerce Dashboard:** Manage your products, orders, and customers efficiently.
+- **CMS Functionality:** Create, edit, and organize content seamlessly.
+- **User Authentication:** Secure user accounts and roles.
+- **Dynamic Routing:** Intuitive navigation with Next.js routing.
+- **Tailwind CSS Styling:** Responsive and modern UI design.
+- **Database Integration:** Prisma and PostgreSQL for data persistence.
+- **API Handling:** Utilizes Next.js API routes for server-side logic.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Tech Stack
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- **Frontend:** Next.js, React, Tailwind CSS
+- **Backend:** Next.js API routes, Prisma, PostgreSQL
+- **State Management:** React Context API
+- **Authentication:** JWT-based authentication
+- **Styling:** Tailwind CSS
+- **Database:** PostgreSQL with Prisma ORM
