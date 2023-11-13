@@ -1,0 +1,45 @@
+import { auth } from "@clerk/nextjs"
+import { redirect } from "next/navigation";
+
+import prismadb from "@/lib/prismadb";
+import SettingsForm from "./components/settings-form";
+
+interface SettingsPageProps {
+    params: {
+        storeId: string
+    }
+}
+
+// like we need to check if the user is authenticated when it goes to the settings page 
+
+const SettingsPage: React.FC<SettingsPageProps> = async ({
+    params
+}) => {
+
+    const { userId } = auth();
+
+    if (!userId) {
+        redirect('/sign-in');
+    }
+
+    const store = await prismadb.store.findFirst({
+        where: {
+            id: params.storeId,
+            userId: userId
+        }
+    })
+
+    if (!store) {
+        redirect('/');
+    }
+
+    return (
+        <div className="flex-col">
+            <div className="flex-1 space-y-4 p-8 pt-6">
+                <SettingsForm initialData={store} />
+            </div>
+        </div>
+    )
+}
+
+export default SettingsPage;
