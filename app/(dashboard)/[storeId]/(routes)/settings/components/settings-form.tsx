@@ -12,6 +12,9 @@ import { Button } from "@/components/ui/button"
 import { Separator } from "@/components/ui/separator"
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
+import toast from "react-hot-toast"
+import axios from "axios"
+import { useParams, useRouter } from "next/navigation"
 
 interface SettingFormProps {
     initialData: Store // we are passing the Store as initialData
@@ -28,6 +31,11 @@ const SettingsForm: React.FC<SettingFormProps> = ({
     initialData
 }) => {
 
+    const params = useParams()
+    console.log(params)
+
+    const router = useRouter();
+    console.log(router)
 
     const [open, setOpen] = useState(false)
     const [loading, setLoading] = useState(false)
@@ -40,6 +48,18 @@ const SettingsForm: React.FC<SettingFormProps> = ({
 
     const onSubmit = async (data: SettingFormValues) => {
         console.log(data)
+        try {
+            setLoading(true)
+            await axios.patch(`/api/stores/${params.storeId}`, data);
+            router.refresh()
+            toast.success("Store Updated Successfully")
+
+        } catch (error) {
+            toast.error("Something went wrong")
+        } finally {
+            setLoading(false)
+
+        }
     }
 
     return (
