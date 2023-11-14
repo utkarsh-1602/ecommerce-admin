@@ -16,6 +16,7 @@ import { Separator } from "@/components/ui/separator"
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
 import AlertModal from "@/components/modals/alert-modal"
+import { ApiAlert } from "@/components/ui/api-alert"
 
 interface SettingFormProps {
     initialData: Store // we are passing the Store as initialData
@@ -127,6 +128,8 @@ const SettingsForm: React.FC<SettingFormProps> = ({
                     </Button>
                 </form>
             </Form>
+            <Separator />
+            <ApiAlert title="NEXT_PUBLIC_API_URL" description="test-description 2.0" variant="public" />
         </>
     )
 
