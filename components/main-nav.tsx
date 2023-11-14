@@ -17,11 +17,20 @@ export function MainNav({
     console.log("Params ===> " + JSON.stringify(params));
 
 
-    const routes = [{
-        href: `/${params.storeId}/settings`,
-        label: "Settings",
-        active: pathName === `/${params.storeId}/settings`
-    }];
+    const routes = [
+        {
+            href: `/${params.storeId}`,
+            label: "Overview",
+            active: pathName === `/${params.storeId}`
+        },
+
+        {
+            href: `/${params.storeId}/settings`,
+            label: "Settings",
+            active: pathName === `/${params.storeId}/settings`
+        }
+
+    ];
 
     console.log("routes ====>" + routes);
 
