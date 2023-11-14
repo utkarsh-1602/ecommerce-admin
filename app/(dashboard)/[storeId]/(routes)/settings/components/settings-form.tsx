@@ -17,6 +17,7 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "
 import { Input } from "@/components/ui/input"
 import AlertModal from "@/components/modals/alert-modal"
 import { ApiAlert } from "@/components/ui/api-alert"
+import { useOrigin } from "@/hooks/use-origin"
 
 interface SettingFormProps {
     initialData: Store // we are passing the Store as initialData
@@ -38,6 +39,9 @@ const SettingsForm: React.FC<SettingFormProps> = ({
 
     const router = useRouter();
     console.log(router)
+
+    const origin = useOrigin();
+
 
     const [open, setOpen] = useState(false)
     const [loading, setLoading] = useState(false)
@@ -129,7 +133,10 @@ const SettingsForm: React.FC<SettingFormProps> = ({
                 </form>
             </Form>
             <Separator />
-            <ApiAlert title="NEXT_PUBLIC_API_URL" description="test-description 2.0" variant="public" />
+            <ApiAlert
+                title="NEXT_PUBLIC_API_URL"
+                description={`${origin}/api/${params.storeId}`}
+                variant="public" />
         </>
     )
 

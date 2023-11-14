@@ -1,3 +1,4 @@
+"use client"
 import { Copy, ServerCog } from "lucide-react"
 import toast from "react-hot-toast"
 
