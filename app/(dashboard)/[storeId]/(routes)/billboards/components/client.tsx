@@ -41,6 +41,7 @@ const BillboardClient: React.FC<billboardClientProps> = ({
             <DataTable
                 columns={columns}
                 data={data}
+                searchKey="label"
             />
         </>
     )
