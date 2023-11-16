@@ -16,8 +16,6 @@ import { Separator } from "@/components/ui/separator"
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
 import AlertModal from "@/components/modals/alert-modal"
-import { ApiAlert } from "@/components/ui/api-alert"
-import { useOrigin } from "@/hooks/use-origin"
 import ImageUpload from "@/components/ui/image-upload"
 
 interface BillboardFormProps {
@@ -39,11 +37,10 @@ const BillboardForm: React.FC<BillboardFormProps> = ({
 
     const params = useParams()
     console.log(params)
+    console.log("[BILLBOARD_ID ==> ", params.billboardId)
 
     const router = useRouter();
     console.log(router)
-
-    const origin = useOrigin();
 
 
     const [open, setOpen] = useState(false)
