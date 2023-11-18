@@ -27,14 +27,27 @@ model Store {
   createdAt DateTime    @default(now())
   updatedAt DateTime    @updatedAt
   Billboard Billboard[] @relation("StoreToBillboard")
+  Category  Category[]  @relation("StoreToCategory")
 }
 
 model Billboard {
-  id        String   @id @default(uuid())
+  id        String     @id @default(uuid())
   storeId   String
-  store     Store    @relation("StoreToBillboard", fields: [storeId], references: [id])
+  store     Store      @relation("StoreToBillboard", fields: [storeId], references: [id])
   label     String
   imageUrl  String
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+  Category  Category[]
+}
+
+model Category {
+  id          String    @id @default(uuid())
+  storeId     String
+  store       Store     @relation("StoreToCategory", fields: [storeId], references: [id])
+  billboardId String
+  billboard   Billboard @relation(fields: [billboardId], references: [id])
+  name        String
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
 }
