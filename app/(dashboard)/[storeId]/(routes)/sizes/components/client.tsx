@@ -6,15 +6,15 @@ import { Plus } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import Heading from "@/components/ui/heading"
 import { Separator } from "@/components/ui/separator"
-import { BillboardColumn, columns } from "./columns"
+import { SizeColumn, columns } from "./columns"
 import { DataTable } from "@/components/ui/data-table"
 import ApiList from "@/components/ui/api-list"
 
-interface billboardClientProps {
-    data: BillboardColumn[]
+interface SizesClientProps {
+    data: SizeColumn[]
 }
 
-const BillboardClient: React.FC<billboardClientProps> = ({
+const SizesClient: React.FC<SizesClientProps> = ({
     data
 }) => {
 
@@ -30,10 +30,10 @@ const BillboardClient: React.FC<billboardClientProps> = ({
         <>
             <div className="flex items-center justify-between">
                 <Heading
-                    title={`Billboards (${data.length})`}
-                    description="Manage Billboard for your store"
+                    title={`Sizes (${data.length})`}
+                    description="Manage Sizes for your store"
                 />
-                <Button onClick={() => router.push(`/${params.storeId}/billboards/new`)}>
+                <Button onClick={() => router.push(`/${params.storeId}/sizes/new`)}>
                     <Plus className="mr-2 h-4 w-4" />
                     Add New
                 </Button>
@@ -42,13 +42,13 @@ const BillboardClient: React.FC<billboardClientProps> = ({
             <DataTable
                 columns={columns}
                 data={data}
-                searchKey="label"
+                searchKey="name"
             />
-            <Heading title="API" description="API Calls for Billboards" />
+            <Heading title="API" description="API Calls for Sizes" />
             <Separator />
-            <ApiList entityName="billboards" entityIdName="billboardId" />
+            <ApiList entityName="sizes" entityIdName="sizeId" />
         </>
     )
 }
 
-export default BillboardClient
+export default SizesClient

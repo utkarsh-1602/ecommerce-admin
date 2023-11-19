@@ -7,12 +7,12 @@ import { useParams, useRouter } from "next/navigation"
 import { useState } from "react"
 
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
-import { BillboardColumn } from "./columns"
+import { SizeColumn } from "./columns"
 import { Button } from "@/components/ui/button"
 import AlertModal from "@/components/modals/alert-modal"
 
 interface CellActionProps {
-    data: BillboardColumn
+    data: SizeColumn
 }
 
 
@@ -33,12 +33,12 @@ const CellActions: React.FC<CellActionProps> = ({ data }) => {
     const onDelete = async () => {
         try {
             setLoading(true)
-            await axios.delete(`/api/${params.storeId}/billboards/${data.id}`);
+            await axios.delete(`/api/${params.storeId}/sizes/${data.id}`);
             router.refresh()
-            toast.success("Billboard deleted")
+            toast.success("Size deleted")
 
         } catch (error) {
-            toast.error("Make sure you removed all categories that uses this billboard")
+            toast.error("Make sure you removed all Products that uses this Size")
         } finally {
             setLoading(false)
             setOpen(false)
@@ -73,7 +73,7 @@ The Screen Reader utility also provide an option to display the hidden elements 
                         <Copy className="mr-2 h-4 w-4" />
                         Copy Id
                     </DropdownMenuItem>
-                    <DropdownMenuItem onClick={() => router.push(`/${params.storeId}/billboards/${data.id}`)}>
+                    <DropdownMenuItem onClick={() => router.push(`/${params.storeId}/sizes/${data.id}`)}>
                         <Edit className="mr-2 h-4 w-4" />
                         Update
                     </DropdownMenuItem>
