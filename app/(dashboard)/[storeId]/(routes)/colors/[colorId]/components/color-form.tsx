@@ -24,7 +24,9 @@ interface ColorFormProps {
 // we will use zod TypeScript-first schema validation
 const formSchema = z.object({
     name: z.string().min(1),
-    value: z.string().min(1)
+    value: z.string().min(4).regex(/^#/, {
+        message: "String mush be a valid hex code"
+    })
 
 })
 
@@ -149,7 +151,13 @@ const ColorForm: React.FC<ColorFormProps> = ({
                                 <FormItem>
                                     <FormLabel>Value</FormLabel>
                                     <FormControl>
-                                        <Input disabled={loading} placeholder="Color value..." {...field} />
+                                        <div className="flex items-center gap-x-4">
+                                            <Input disabled={loading} placeholder="Color value..." {...field} />
+                                            <div
+                                                className="border p-4 rounded-full"
+                                                style={{ backgroundColor: field.value }}
+                                            />
+                                        </div>
                                     </FormControl>
                                     <FormMessage />
                                 </FormItem>
