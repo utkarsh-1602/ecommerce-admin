@@ -92,7 +92,7 @@ model Product {
   size       Size     @relation("SizeToProduct", fields: [sizeId], references: [id])
   colorId    String
   color      Color    @relation(fields: [colorId], references: [id])
-  Image      Image[]
+  images     Image[]
   createdAt  DateTime @default(now())
   updatedAt  DateTime @updatedAt
 }
