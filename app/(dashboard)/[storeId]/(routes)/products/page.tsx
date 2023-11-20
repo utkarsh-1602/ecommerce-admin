@@ -34,7 +34,7 @@ const ProductPage = async ({
             isArchived: item.isArchived,
             price: formatter.format(item.price.toNumber()),
             category: item.category.name,
-            size: item.category.name,
+            size: item.size.name,
             color: item.color.value,
             // converting createAt into a string (npm i date-fns)
             createdAt: format(item.createdAt, "MMMM do, yyyy")
