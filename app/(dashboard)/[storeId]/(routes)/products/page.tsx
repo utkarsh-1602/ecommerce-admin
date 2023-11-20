@@ -2,7 +2,8 @@ import { format } from "date-fns"
 
 import prismadb from "@/lib/prismadb"
 import BillboardClient from "./components/client"
-import { BillboardColumn } from "./components/columns"
+import { ProductColumn } from "./components/columns"
+import { formatter } from "@/lib/utils"
 
 const ProductPage = async ({
     params
@@ -25,13 +26,16 @@ const ProductPage = async ({
         }
     })
 
-    const formattedProducts: BillboardColumn[] = products.map((item) => (
+    const formattedProducts: ProductColumn[] = products.map((item) => (
         {
             id: item.id,
             name: item.name,
             isFeatured: item.isFeatured,
             isArchived: item.isArchived,
-            price: item.price,
+            price: formatter.format(item.price.toNumber()),
+            category: item.category.name,
+            size: item.category.name,
+            color: item.color.value,
             // converting createAt into a string (npm i date-fns)
             createdAt: format(item.createdAt, "MMMM do, yyyy")
         }
