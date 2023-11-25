@@ -19,7 +19,10 @@ export async function GET(
             where: {
                 id: params.categoryId,
             },
-        })
+            include: {
+                billboard: true
+            }
+        });
 
         return NextResponse.json(categories)
 
@@ -49,8 +52,6 @@ export async function PATCH(
             return new NextResponse("Name is required", { status: 400 })
         }
 
-
-
         if (!billboardId) {
             return new NextResponse("billboard Id is required", { status: 400 })
         }
@@ -73,7 +74,7 @@ export async function PATCH(
         }
 
 
-        const categories = await prismadb.category.updateMany({
+        const categories = await prismadb.category.update({
             where: {
                 id: params.categoryId,
             },
@@ -123,7 +124,7 @@ export async function DELETE(
         }
 
 
-        const categories = await prismadb.category.deleteMany({
+        const categories = await prismadb.category.delete({
             where: {
                 id: params.categoryId,
             },
