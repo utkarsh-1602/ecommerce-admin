@@ -6,6 +6,7 @@ import React from 'react'
 import prismadb from '@/lib/prismadb'
 import { MainNav } from '@/components/main-nav'
 import StoreSwitcher from '@/components/store-switcher'
+import { ThemeToggle } from './theme-toggle'
 
 const Navbar = async () => {
 
@@ -27,6 +28,7 @@ const Navbar = async () => {
                 <StoreSwitcher items={stores} />
                 <MainNav />
                 <div className='ml-auto flex item-center space-x-4'>
+                    <ThemeToggle />
                     <UserButton afterSignOutUrl='/' />
                 </div>
             </div>
