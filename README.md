@@ -35,7 +35,7 @@ uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to 
 
 - **Frontend:** Next.js, React, Tailwind CSS
 - **Backend:** Next.js API routes, Prisma, PostgreSQL
-- **State Management:** React Context API
-- **Authentication:** JWT-based authentication
-- **Styling:** Tailwind CSS
+- **State Management:** Zustand
+- **Authentication:** Clerk authentication
+- **Styling:** Shadcn UI
 - **Database:** PostgreSQL with Prisma ORM
