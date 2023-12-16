@@ -30,6 +30,8 @@ uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to 
 - **Tailwind CSS Styling:** Responsive and modern UI design.
 - **Database Integration:** Prisma and PostgreSQL for data persistence.
 - **API Handling:** Utilizes Next.js API routes for server-side logic.
+- **Payment Gateway:** Integrated with Stripe for secure and seamless transactions.
+
 
 ## Tech Stack
 
@@ -39,3 +41,4 @@ uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to 
 - **Authentication:** Clerk authentication
 - **Styling:** Shadcn UI
 - **Database:** PostgreSQL with Prisma ORM
+- **Stripe:** Stripe with webhook integration for real-time updates.
