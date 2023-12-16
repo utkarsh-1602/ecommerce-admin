@@ -4,12 +4,13 @@ import { stripe } from "@/lib/stripe";
 import { NextResponse } from "next/server";
 import prismadb from "@/lib/prismadb";
 
+// Here we are creating the webhook endpoint that receives requests from Stripe, notifying you about events that happen as per the transactions. 
+
 export async function POST(req: Request) {
     const body = await req.text();
     const signature = headers().get("Stripe-Signature") as string;
 
     let event: Stripe.Event;
-    // TODO: provide Overview and flow for Stripe.Event
 
     try {
         event = stripe.webhooks.constructEvent(
@@ -38,6 +39,7 @@ export async function POST(req: Request) {
     const addressString = addressComponents.filter((c) => c !== null).join(", ");
 
     if (event.type === "checkout.session.completed") {
+        // After the Payment is Completed, we can Update the database to store the Recent Order Information
         const order = await prismadb.order.update({
             where: {
                 id: session?.metadata?.orderId,

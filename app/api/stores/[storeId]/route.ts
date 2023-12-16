@@ -81,3 +81,6 @@ export async function DELETE(
         return new NextResponse("Internal Server Error", { status: 500 })
     }
 }
+
+// TODO: I want to load the store which is associated with the current active store in the admin-dashboard
+// for that I need to firstly get the userId of the store from admin, then I need to fetch the userId to the store, and check if the userId is active and then only I will load the store based on the current active store
